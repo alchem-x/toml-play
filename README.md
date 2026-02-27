@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TOML Play
 
-## Getting Started
+TOML 语法与 JSON 对照表，展示常见的 TOML 语法及其对应的 JSON 表示形式。
 
-First, run the development server:
+## 在线预览
+
+https://alchem-x.github.io/toml-play/
+
+## 技术栈
+
+- Next.js 16 (CSR 模式)
+- Zustand
+- TailwindCSS
+- Bun
+
+## 开发
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 安装依赖
+bun install
+
+# 启动开发服务器
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 构建
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 构建静态资源
+NEXT_PUBLIC_BASE_PATH=/toml-play bun run build
+```
 
-## Learn More
+静态资源输出到 `dist/` 目录。
 
-To learn more about Next.js, take a look at the following resources:
+## 部署
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+部署到 GitHub Pages：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+./deploy.sh
+```
 
-## Deploy on Vercel
+这会构建项目并将静态资源推送到 `gh-pages` 分支。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 项目结构
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── page.tsx      # 主页面组件
+│   ├── layout.tsx    # 布局
+│   └── globals.css   # 全局样式
+└── store/
+    └── tomlStore.ts  # Zustand store (示例数据)
+```
